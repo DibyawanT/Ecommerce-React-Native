@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        buildToolsVersion = "34.0.0"
+        buildToolsVersion = "31.0.0"
         minSdkVersion = 21
         compileSdkVersion = 34
         targetSdkVersion = 34
@@ -10,11 +10,27 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:7.1.2")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath 'com.google.gms:google-services:4.4.0'
+    }
+}
+allprojects {
+    repositories {
+        google()
+        mavenLocal()
+        jcenter()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+            
+            // jitpack repo is necessary to fetch ucrop dependency
+            maven { url "https://jitpack.io" }
+        }
     }
 }
 
