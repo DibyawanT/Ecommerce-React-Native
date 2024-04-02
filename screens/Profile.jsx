@@ -5,6 +5,7 @@ import {MKKV} from '../data/constants';
 import {ProfileStyles} from '../styles/ProfileStyles';
 import {useUserAuthContext} from '../data/userAuthContext';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { account } from '../appwrite/appwriteConfig';
 function Profile() {
   const {userAuth} = useUserAuthContext();
   console.log('>>>' + userAuth);
@@ -23,6 +24,7 @@ function Profile() {
           auth()
             .signOut()
             .then(() => {
+              account.deleteSession("current");
               MKKV.clearStore();
               console.log('User signed out !');
             })

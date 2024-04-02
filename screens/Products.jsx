@@ -9,6 +9,7 @@ import {TextStyles} from '../styles/TextStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {Query} from 'appwrite';
+import { randomQuote } from '../data/constants';
 function Products({navigation}) {
   const {category} = useProductContext();
   const [products, setProducts] = useState();
@@ -31,7 +32,17 @@ function Products({navigation}) {
 
   return loading ? (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ActivityIndicator size="large" color="#0000ff" />
+            <View
+      style={{
+        height:40,
+        width:'85%'
+      }}>
+<Text
+      style={TextStyles.medRegularText}>
+        {randomQuote()}
+      </Text>
+      </View>
+      <ActivityIndicator size="large" color="#secondaryColorDark" />
     </View>
   ) : (
     <View style={{marginBottom: 90}}>

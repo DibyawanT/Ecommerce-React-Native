@@ -31,7 +31,7 @@ function Home({navigation}) {
     salePromise.then(
       function (response) {
         // console.log(response.documents);
-        setSaleitem(response.documents.slice(0, 2));
+        setSaleitem(response.documents.slice(0, 3));
       },
       function (error) {
         console.log(error);

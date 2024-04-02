@@ -119,6 +119,7 @@ export default function ProductFav({data}) {
                 style={{
                   ...TextStyles.medSemiBoldText,
                   color: 'black',
+                  fontSize:17
                 }}>
                 {data.discounted_price}
               </Text>

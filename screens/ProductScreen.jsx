@@ -17,6 +17,7 @@ import {
   secondaryColor,
   secondaryColorDark,
   showToast,
+  randomQuote,
 } from '../data/constants';
 import PagerView from 'react-native-pager-view';
 import {HomeStyles} from '../styles/HomeStyle';
@@ -56,7 +57,17 @@ function ProductScreen({navigation, route}) {
 
   return loading ? (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ActivityIndicator size="large" color="#0000ff" />
+            <View
+      style={{
+        height:40,
+        width:'85%'
+      }}>
+<Text
+      style={TextStyles.medRegularText}>
+        {randomQuote()}
+      </Text>
+      </View>
+      <ActivityIndicator size="large" color={secondaryColorDark} />
     </View>
   ) : (
     <View
@@ -201,6 +212,7 @@ function ProductScreen({navigation, route}) {
                     style={{
                       ...TextStyles.medSemiBoldText,
                       color: 'black',
+                      fontSize:17
                     }}>
                     {data.discounted_price}
                   </Text>

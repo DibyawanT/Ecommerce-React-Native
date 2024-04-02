@@ -200,6 +200,7 @@ function loginUserWithEmailPass(email, password) {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(value => {
+        account.createAnonymousSession();
         showToast('User signed in!');
       })
       .catch(error => {
@@ -224,6 +225,7 @@ function createUserWithEmailPass(email, password) {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
+        account.createAnonymousSession();
         showToast('User account created & signed in!');
       })
       .catch(error => {
@@ -243,6 +245,7 @@ function anonymousLogin() {
   auth()
     .signInAnonymously()
     .then(() => {
+      account.createAnonymousSession();
       showToast('Anonymously logged in !');
     })
     .catch(error => {

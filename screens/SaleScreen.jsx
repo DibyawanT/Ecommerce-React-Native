@@ -9,16 +9,13 @@ import {TextStyles} from '../styles/TextStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {Query} from 'appwrite';
+import {randomQuote, secondaryColorDark } from '../data/constants';
 function SaleScreen({navigation}) {
   const {category} = useProductContext();
   const [products, setProducts] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // fetch('https://fakestoreapi.com/products/category/' + category)
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     setProducts(json);
-    //   });
+
     const promise = database.listDocuments('shoes', '65edf99b907171bc05ce', [
       Query.isNotNull('discounted_price'),
     ]);
@@ -28,10 +25,19 @@ function SaleScreen({navigation}) {
       setLoading(false);
     });
   }, []);
-
   return loading ? (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ActivityIndicator size="large" color="#0000ff" />
+      <View
+      style={{
+        height:50,
+        width:'85%'
+      }}>
+<Text
+      style={TextStyles.medRegularText}>
+        {randomQuote()}
+      </Text>
+      </View>
+      <ActivityIndicator size="large" color={secondaryColorDark}/>
     </View>
   ) : (
     <View style={{marginBottom: 60}}>

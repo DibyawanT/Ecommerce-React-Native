@@ -111,6 +111,7 @@ export default function Product({data}) {
               style={{
                 ...TextStyles.medSemiBoldText,
                 color: 'black',
+                fontSize:17
               }}>
               {data.discounted_price}
             </Text>
