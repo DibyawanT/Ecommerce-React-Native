@@ -12,6 +12,7 @@ import {CartProvider} from '../data/cartContext';
 import {ProductProvider} from '../data/productContext';
 import {FavouriteProvider} from '../data/favouriteContext';
 import SaleScreen from '../screens/SaleScreen';
+import { CameraScreen } from '../screens/Camera';
 
 const Stack = createNativeStackNavigator();
 function PrivateRoutes() {
@@ -31,6 +32,7 @@ function PrivateRoutes() {
               <Stack.Screen name="SaleScreen" component={SaleScreen} />
               <Stack.Screen name="ProductScreen" component={ProductScreen} />
               <Stack.Screen name="Cart" component={Cart} />
+              <Stack.Screen name = "Camera" component={CameraScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
         </FavouriteProvider>

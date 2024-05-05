@@ -6,7 +6,7 @@ import {ProfileStyles} from '../styles/ProfileStyles';
 import {useUserAuthContext} from '../data/userAuthContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { account } from '../appwrite/appwriteConfig';
-function Profile() {
+function Profile({navigation}) {
   const {userAuth} = useUserAuthContext();
   console.log('>>>' + userAuth);
   return (
@@ -16,9 +16,16 @@ function Profile() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <View style={ProfileStyles.profileDiv}>
+        <Pressable
+        onPress={()=>{
+          navigation.navigate("Camera")
+        }}>
+
+        <View style={ProfileStyles.profileDiv}>
         <Icon name="person-sharp" style={ProfileStyles.profileIcon} size={50} />
       </View>
+        </Pressable>
+      
       <Pressable
         onPress={() =>
           auth()
